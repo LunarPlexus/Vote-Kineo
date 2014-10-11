@@ -1,4 +1,7 @@
 <div class="container">
-    <h2>You are in the View: application/views/home/index.php (everything in the box comes from this file)</h2>
-    <p>In a real application this could be the homepage.</p>
+    <h2>You are in the View: application/views/home/index.php (everything in this box comes from that file)</h2>
+    <!-- main content output -->
+    <div>
+        <h3>HI</h3>
+    </div>
 </div>
