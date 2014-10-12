@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Class Songs
+ * Class Voters
  * This is a demo class.
  *
  * Please note:
@@ -24,6 +24,7 @@ class Voters extends Controller
         // NOTE: please write the name of the model "LikeThis"
         $voters_model = $this->loadModel('VotersModel');
         $voters = $voters_model->getAllVoters();
+        $votesByState = $voters_model->getVoterCountByState();
 
         // load another model, perform an action, pass the returned data to a variable
         // NOTE: please write the name of the model "LikeThis"
@@ -39,27 +40,27 @@ class Voters extends Controller
     }
 
     /**
-     * ACTION: addSong
-     * This method handles what happens when you move to http://yourproject/songs/addsong
+     * ACTION: addVoter
+     * This method handles what happens when you move to http://yourproject/songs/addVoter
      * IMPORTANT: This is not a normal page, it's an ACTION. This is where the "add a song" form on songs/index
      * directs the user after the form submit. This method handles all the POST data from the form and then redirects
      * the user back to songs/index via the last line: header(...)
      * This is an example of how to handle a POST request.
      */
-    public function addSong()
+    public function addVoter()
     {
         // simple message to show where you are
-        echo 'Message from Controller: You are in the Controller: Voters, using the method addSong().';
+/*         echo 'Message from Controller: You are in the Controller: Voters, using the method addVoter().'; */
 
         // if we have POST data to create a new song entry
-        if (isset($_POST["submit_add_song"])) {
+        if (isset($_POST["submit_add_vote"])) {
             // load model, perform an action on the model
-            $songs_model = $this->loadModel('VotersModel');
-            $songs_model->addSong($_POST["artist"], $_POST["track"],  $_POST["link"]);
+            $votess_model = $this->loadModel('VotersModel');
+            $votess_model->addVoter($_POST["isVoting"], $_POST["forWhom"],  $_POST["state"]);
         }
 
-        // where to go after song has been added
-        header('location: ' . URL . 'songs/index');
+        // where to go after vote has been added
+        header('location: ' . URL . 'home/index');
     }
 
     /**

@@ -1,48 +1,29 @@
 <div class="container">
-    <h2>2016 is right around the corner. Are you ready to make a difference?</h2>
+    <h2>You are in the View: application/views/voters/index.php (everything in this box comes from that file)</h2>
     <!-- add vote form -->
     <div>
         <h3>Cast your vote!</h3>
-        <form name="vote-now" id="vote-now" action="<?php echo URL; ?>home/addVoter" method="POST" data-parsley-validate>
+        <form action="<?php echo URL; ?>voters/addVoter" method="POST">
             <div>
               <label>Are you voting?</label>
-              <input type="radio" name="isVoting" value="1"/>Yes
-              <input type="radio" name="isVoting" value="0"/>No
+              <input type="radio" name="isVoting" value="1" required />Yes
+              <input type="radio" name="isVoting" value="0" required />No
             </div>
             <div class="conditional">
-              <label class="voting">Who are you voting for?</label>
-              <label class="not-voting">If you were going to vote, who would you vote for?</label>
-              
-              <select name="forWhom" id="forWhom" required>
-                <option value="" selected="selected">Select your candidate...</option>
-                <?php foreach($candidates as $key) { ?>
-                  <option value="<?php echo $key->candidate; ?>"><?php echo $key->candidate; ?></option>
-                <?php } ?>
-                  <option value="Other">Other...</option>
-              </select>
-              <input type="text" id="forWhomWriteIn" name="forWhomWriteIn" value="" class="write-in"/>
-              
-              
-              
+              <label>Who are you voting for?</label>
+              <input type="text" name="forWhom" value="" required />
             </div>
-
-            <div class="conditional state">
+            <div class="conditional">
               <label>What state are you in?</label>
-              <select name="state" id="state" required>
-                <option value="" selected="selected">Select your state...</option>
-                <?php foreach($states as $key=>$value) { ?>
-                  <option value="<?php echo $key; ?>"><?php echo $value; ?></option>
-                <?php } ?>
-              </select>
+              <input type="text" name="state" value="" /
             </div>
             <div>
-             <input id="vote" type="submit" name="submit_add_vote" value="Vote" />
+             <input type="submit" name="submit_add_vote" value="Submit" />
             </div>
         </form>
     </div>
     <!-- main content output -->
-<!--
-    <div class="result">
+    <div>
         <h3>List of voters (data from first model)</h3>
         <table>
             <thead style="background-color: #ddd; font-weight: bold;">
@@ -68,7 +49,7 @@
         </table>
     </div>
 
-    <div class="result">
+    <div>
         <h3>Votes by state</h3>
         <table>
             <thead style="background-color: #ddd; font-weight: bold;">
@@ -92,7 +73,7 @@
         </table>
     </div>
 
-    <div class="result">
+    <div>
         <h3>Votes nationwide</h3>
         <table>
             <thead style="background-color: #ddd; font-weight: bold;">
@@ -113,6 +94,5 @@
             </tbody>
         </table>
     </div>
--->
 
 </div>
