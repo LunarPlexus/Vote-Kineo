@@ -40,7 +40,7 @@ class VotersModel
   }
 
   /**
-   * Get voter count by state and candidate
+   * Get voter count totals
    */
   public function getVoterCount()
   {
@@ -79,10 +79,15 @@ class VotersModel
     $isVoting = strip_tags($isVoting);
     $forWhom = strip_tags($forWhom);
     $state = strip_tags($state);
-  
-    $sql = "INSERT INTO voters (isVoting, forWhom, state) VALUES (:isVoting, :forWhom, :state)";
-    $query = $this->db->prepare($sql);
-    $query->execute(array(':isVoting' => $isVoting, ':forWhom' => $forWhom, ':state' => $state));
+    
+    if (empty($isVoting) || empty($forWhom) || empty($state)) {
+      echo('Oops');
+    }
+    else {
+      $sql = "INSERT INTO voters (isVoting, forWhom, state) VALUES (:isVoting, :forWhom, :state)";
+      $query = $this->db->prepare($sql);
+      $query->execute(array(':isVoting' => $isVoting, ':forWhom' => $forWhom, ':state' => $state));
+    }
   }
 
   /**

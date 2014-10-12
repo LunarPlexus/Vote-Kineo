@@ -1,8 +1,9 @@
 <div class="container">
   <h2>Here are the results so far.</h2>
   <!-- main content output -->
+  <!-- Could show all the data, if anybody wanted to see it.
   <div class="result">
-    <h3>List of voters (data from first model)</h3>
+    <h3>List of voters</h3>
     <table>
       <thead style="background-color: #ddd; font-weight: bold;">
         <tr>
@@ -24,6 +25,7 @@
       </tbody>
     </table>
   </div>
+  -->
   
   <div class="result">
     <h3>Votes by state</h3>

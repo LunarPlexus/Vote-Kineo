@@ -25,7 +25,7 @@
   <!-- navigation -->
   <div id="menu" class="navigation">
     <ul>
-      <li><a href="<?php echo URL; ?>">Home</a></li>
+      <li><a href="<?php echo URL; ?>">Vote</a></li>
       <li><a href="<?php echo URL; ?>home/result">View results</a></li>
     </ul>
   </div>

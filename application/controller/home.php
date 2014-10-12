@@ -34,7 +34,6 @@ class Home extends Controller
   public function result()
   {
     // load a model, perform an action, pass the returned data to a variable
-    // NOTE: please write the name of the model "LikeThis"
     $voters_model = $this->loadModel('VotersModel');
     $voters = $voters_model->getAllVoters();
     $votesByState = $voters_model->getVoterCountByState();
@@ -56,15 +55,17 @@ class Home extends Controller
   public function addVoter()
   {
     // if we have POST data to create a new vote entry
-    if (isset($_POST["submit_add_vote"])) {
+    if (isset($_POST['submit_add_vote']) && isset($_POST['isVoting'])  && isset($_POST['forWhom'])  && isset($_POST['state'])) {
       // load model, perform an action on the model
       $voters_model = $this->loadModel('VotersModel');
       // Get write in candidate, if set, otherwise get from candidate dropdown
       $forWhomx = ($_POST["forWhom"] == 'Other') ? $_POST["forWhomWriteIn"] : $_POST["forWhom"];
       $voters_model->addVoter($_POST["isVoting"], $forWhomx,  $_POST["state"]);
+      // where to go after vote has been added
+      header('location: ' . URL . 'home/result');
     }
-  
-    // where to go after vote has been added
-    header('location: ' . URL . 'home/result');
+    else {
+      echo('Some required fields are missing. Hit the back button and try again. If you turn on JavaScript, you will get better error messages.');
+    }
   } 
 }

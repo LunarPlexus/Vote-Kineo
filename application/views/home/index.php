@@ -19,7 +19,7 @@
           <?php } ?>
             <option value="Other">Other...</option>
         </select>
-        <input type="text" id="forWhomWriteIn" name="forWhomWriteIn" value="" class="write-in"/>
+        <input type="text" id="forWhomWriteIn" name="forWhomWriteIn" value="" placeholder="Write in candidate" class="write-in"/>
       </div>
       <div class="conditional state">
         <label>What state are you in?</label>
