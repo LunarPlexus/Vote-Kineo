@@ -42,6 +42,29 @@ $(function() {
       }
     }); 
 
+
+/*
+    var fValidate = $.parselyConditions({
+      
+        csstoggle: 'parselyTaDa',
+        formname: 'vote-now',
+      
+        validationfields: [
+    
+            {
+                fid: 'forWhom',
+                ftype: 'select',
+                fvalue: 'Other',
+                faffected: 'forWhomWriteIn',
+                fhide: false
+            }
+        ]
+    
+    });
+    
+*/
+    
+   
     
     if ($('#javascript-header-demo-box').length != 0) {
         $('#javascript-header-demo-box').hide();
@@ -50,3 +73,6 @@ $(function() {
         $('#javascript-header-demo-box').fadeIn('slow');
     }
 });
+
+
+
